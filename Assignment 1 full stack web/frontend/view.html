@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>View Upload</title>
+  <link rel="stylesheet" href="static/css/style.css" />
+  <style>
+    .viewer-page {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      background: #0f1120;
+      color: #fff;
+      padding: 20px;
+    }
+    .viewer-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 16px;
+    }
+    .viewer-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+    }
+    .viewer-frame {
+      flex: 1;
+      min-height: 70vh;
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 12px;
+      overflow: auto;
+      background: #090b14;
+    }
+    .viewer-frame img,
+    .viewer-frame iframe {
+      display: block;
+      width: 100%;
+      border: none;
+    }
+    .viewer-frame img {
+      width: auto;
+      max-width: none;
+      height: auto;
+      max-height: none;
+    }
+    .viewer-frame iframe {
+      min-height: 100%;
+    }
+    .viewer-note {
+      margin-top: 12px;
+      color: #8a93b8;
+      font-size: 0.95rem;
+    }
+  </style>
+</head>
+<body class="dashboard-page viewer-page">
+  <div class="viewer-header">
+    <button class="btn-ghost" onclick="goBack()">← Back to Dashboard</button>
+    <span class="viewer-title">View Uploaded File</span>
+    <a id="downloadLink" class="btn-secondary" href="#" download>Download</a>
+  </div>
+  <div class="viewer-frame" id="viewerFrame">
+    <img id="fileImage" src="" alt="Uploaded photo preview" style="display:none;" />
+    <iframe id="fileFrame" src="" title="Uploaded file preview"></iframe>
+  </div>
+  <p class="viewer-note">If the file does not display, click Download or return to the dashboard.</p>
+  <script src="static/js/viewer.js"></script>
+</body>
+</html>

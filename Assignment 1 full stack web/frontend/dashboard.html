@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard – FullStack App</title>
+  <link rel="stylesheet" href="static/css/style.css" />
+</head>
+<body class="dashboard-page">
+
+  <header class="topbar">
+    <div class="topbar-inner">
+      <span class="brand-icon">⬡</span>
+      <span class="topbar-title">Dashboard</span>
+      <div class="topbar-right">
+        <span id="welcomeMsg" class="welcome-text"></span>
+        <button class="btn-ghost" onclick="logout()">Log Out</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="dashboard-main">
+
+    <!-- Upload Section -->
+    <section class="card">
+      <h2 class="card-title">Upload Files</h2>
+      <p class="card-desc">Accepted formats: PDF, PNG, JPEG. Max two files at a time.</p>
+
+      <div id="uploadMsg" class="message hidden"></div>
+
+      <div class="upload-grid">
+        <div class="upload-field" id="dropzone1" ondragover="onDragOver(event)" ondrop="onDrop(event,'file1')">
+          <input type="file" id="file1" accept=".pdf,.png,.jpg,.jpeg" onchange="previewFile(this,'preview1')" hidden />
+          <div class="drop-inner" onclick="document.getElementById('file1').click()">
+            <span class="drop-icon">📄</span>
+            <span id="preview1" class="drop-label">Click or drag File 1</span>
+          </div>
+        </div>
+
+        <div class="upload-field" id="dropzone2" ondragover="onDragOver(event)" ondrop="onDrop(event,'file2')">
+          <input type="file" id="file2" accept=".pdf,.png,.jpg,.jpeg" onchange="previewFile(this,'preview2')" hidden />
+          <div class="drop-inner" onclick="document.getElementById('file2').click()">
+            <span class="drop-icon">📄</span>
+            <span id="preview2" class="drop-label">Click or drag File 2</span>
+          </div>
+        </div>
+      </div>
+
+      <button class="btn-primary" onclick="uploadFiles()">Upload Files</button>
+    </section>
+
+    <!-- Download Section -->
+    <section class="card">
+      <h2 class="card-title">Download Sample File</h2>
+      <p class="card-desc">Download a sample text file generated for your account.</p>
+      <button class="btn-secondary" onclick="downloadSample()">⬇ Download Sample</button>
+    </section>
+
+    <!-- My Uploads -->
+    <section class="card">
+      <h2 class="card-title">My Uploads</h2>
+      <div id="fileList" class="file-list">
+        <p class="muted">Loading your files…</p>
+      </div>
+    </section>
+
+  </main>
+
+  <script src="static/js/dashboard.js"></script>
+</body>
+</html>
