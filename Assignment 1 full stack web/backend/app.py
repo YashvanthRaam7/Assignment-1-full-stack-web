@@ -19,7 +19,11 @@ UPLOAD_DIR   = "/tmp/uploads"
 ALLOWED_EXT  = {"pdf", "png", "jpg", "jpeg"}
 os.makedirs(UPLOAD_DIR, exist_ok=True)
 
-IS_PROD = os.environ.get("VERCEL") == "1" or os.environ.get("VERCEL_ENV") is not None
+IS_PROD = (
+    os.environ.get("VERCEL") == "1" or
+    os.environ.get("VERCEL_ENV") is not None or
+    os.environ.get("SPACE_ID") is not None
+)
 
 app = Flask(
     __name__,
